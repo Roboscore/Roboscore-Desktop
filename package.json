@@ -3,12 +3,7 @@
   "version": "0.1.0",
   "main": "./dist/js/application.js",
   "scripts": {
-    "start": "npm run compile:all && ./node_modules/.bin/electron .",
-    "compile:all": "npm run compile:js && npm run compile:css && npm run compile:html && npm run compile:fonts",
-    "compile:js": "coffee --compile --output dist/js src/js",
-    "compile:css": "sass -Cq --update src/css:dist/css --sourcemap=none",
-    "compile:html": "mkdir -p dist/html; cp -R src/html dist",
-    "compile:fonts": "mkdir -p dist/fonts; cp -R src/fonts dist"
+    "start": "gulp compile && ./node_modules/.bin/electron ."
   },
   "dependencies": {
     "keytar": "^3.0.0"
@@ -17,6 +12,10 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "electron-prebuilt": "^0.34.2"
+    "del": "^2.0.2",
+    "electron-prebuilt": "^0.34.2",
+    "gulp": "^3.9.0",
+    "gulp-coffee": "^2.3.1",
+    "gulp-sass": "^2.1.0"
   }
 }
