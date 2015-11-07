@@ -1,0 +1,60 @@
+@import "colors"
+
+$red: $alizarin
+$orange: $carrot
+$green: $emerald
+$blue: $peter-river
+$purple: $amethyst
+$white: $clouds
+$grey: $silver
+$black: $midnight-blue
+
+=font-awesome($unicode, $padding-right: .5rem, $spin: false)
+  font-family: FontAwesome
+  content: $unicode
+  font-weight: 100
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+
+  @if $spin
+    -webkit-animation: fa-spin 2s infinite linear
+    margin-right: $padding-right
+  @else
+    padding-right: $padding-right
+
+=linear-gradient($origin, $from, $to)
+  background-image: -webkit-linear-gradient($origin, $from, $to)
+
+=clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+=button-style
+  margin: 2px
+  padding: 4px
+  font-size: 1.2rem
+
+=button-color($color)
+  background: $color
+  +linear-gradient(top, lighten($color, 5%), darken($color, 5%))
+  border: 1px solid scale-color($color, $lightness: -30%)
+  @if lightness($color) < 60%
+    color: $clouds
+    text-shadow: 0 1px 1px scale-color($color, $lightness: -50%)
+  @else
+    color: #222
+    text-shadow: 0 1px 1px scale-color($color, $lightness: 50%)
+
+  &:hover
+    background: darken($color, 10%)
+    +linear-gradient(top, darken($color, 5%), darken($color, 15%))
+    border: 1px solid darken($color, 20%)
+    text-shadow: 0 1px 1px darken($color, 20%)
+
+  &:active
+    background: darken($color, 15%)
+    +linear-gradient(top, darken($color, 15%), darken($color, 25%))
+    border: 1px solid darken($color, 25%)
+    text-shadow: 0 1px 1px darken($color, 25%)

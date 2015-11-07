@@ -1,0 +1,25 @@
+@import "functions"
+
+@-webkit-keyframes flash
+  0%
+    background-color: $red
+  50%
+    background-color: darken($red, 30%)
+  100%
+    background-color: $red
+
+body
+  font-size: 90vh
+  text-align: center
+  background: #222
+  color: #fafafa
+  -webkit-app-region: drag
+  -webkit-user-select: none
+
+.flash
+  background: darken($red, 10%)
+  text-shadow: 0 0 4px darken($red, 50%)
+  -webkit-animation-name: flash
+  -webkit-animation-duration: 1500ms
+  -webkit-animation-iteration-count: infinite
+  -webkit-animation-timing-function: ease-in-out

@@ -1,0 +1,113 @@
+@import "functions"
+
+html, body
+  padding: 0 0 64px
+  overflow: hidden
+  background: $wet-asphalt
+
+::selection
+  background: none
+
+#content
+  top: 0
+  bottom: 32px
+  left: 0
+  right: 0
+  position: fixed
+  overflow: scroll
+
+h1
+  color: $clouds
+  padding: 4px 8px
+  margin: 0
+  font-size: 1.3rem
+  text-shadow: 0 0 1px $midnight-blue
+
+.buttons
+  clear: both
+  padding: 2px
+  +clearfix
+
+button
+  +button-style
+  +button-color($silver)
+  float: left
+  display: block
+  padding: 12px 4px
+
+// Button Colors
+
+#enter-score,
+#enter-rubric
+  +button-color($emerald)
+#manage-scores,
+#manage-rubrics
+  +button-color($belize-hole)
+#scoreboard,
+#judging-guide
+  +button-color($pumpkin)
+
+// Button Icons
+
+#display-timer
+  &:before
+    +font-awesome("\f017")
+#start-timer
+  &:before
+    +font-awesome("\f04b")
+#scoreboard
+  &:before
+    +font-awesome("\f26c")
+#enter-score,
+#enter-rubric
+  &:before
+    +font-awesome("\f067")
+#judging-guide
+  &:before
+    +font-awesome("\f0d0")
+#manage-scores,
+#manage-rubrics
+  &:before
+    +font-awesome("\f040")
+#help
+  &:before
+    +font-awesome("\f1cd")
+#settings
+  &:before
+    +font-awesome("\f013")
+
+#footer-bar
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  height: 32px
+  line-height: 32px
+  padding: 0 8px
+  background: #666
+  border-top: 1px solid #333
+  color: #eaeaea
+  font-size: 0.8rem
+  text-shadow: 0 1px 1px black
+  background-image: -webkit-linear-gradient(top, #666, #444)
+
+#version
+  cursor: pointer
+
+#high-score
+  float: right
+
+  &:before
+    +font-awesome("\f091")
+
+@media (min-width: 600px)
+  button
+    width: calc(33.3333% - 4px)
+@media (min-width: 400px) and (max-width: 599px)
+  button
+    width: calc(50% - 4px)
+@media (max-width: 399px)
+  button
+    width: calc(100% - 4px)
+  h1
+    text-align: center
