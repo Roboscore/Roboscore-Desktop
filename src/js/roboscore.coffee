@@ -17,10 +17,10 @@ class Roboscore
     ipc.on 'timer.open', @openTimerWindow
 
     ipc.on 'timer.start', =>
-      @timerWindow?.webContents.send 'timer.start'
+      @timerWindow?.webContents?.send 'timer.start'
 
     ipc.on 'timer.reset', =>
-      @timerWindow?.webContents.send 'timer.reset'
+      @timerWindow?.webContents?.send 'timer.reset'
 
   openMainWindow: =>
     unless @mainWindow
@@ -29,6 +29,9 @@ class Roboscore
         height: 500
         'max-width': 800
         'min-width': 200
+
+      @mainWindow.on 'closed', =>
+        @mainWindow = undefined
 
       @mainWindow.loadUrl "file://#{__dirname}/../html/main.html"
 
@@ -39,9 +42,12 @@ class Roboscore
       @timerWindow = new BrowserWindow
         width: 400
         height: 100
-        'max-width': 800
         'min-width': 200
+        'min-height': 50
         'title-bar-style': 'hidden'
+
+      @timerWindow.on 'closed', =>
+        @timerWindow = undefined
 
       @timerWindow.loadUrl "file://#{__dirname}/../html/timer.html"
 
