@@ -41,7 +41,7 @@ $font-face: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif
 =button-color($color)
   background: $color
   +linear-gradient(top, lighten($color, 5%), darken($color, 5%))
-  border: 1px solid scale-color($color, $lightness: -30%)
+  border: 1px solid scale-color($color, $lightness: 50%)
   @if lightness($color) < 60%
     color: $clouds
     text-shadow: 0 1px 1px scale-color($color, $lightness: -50%)
