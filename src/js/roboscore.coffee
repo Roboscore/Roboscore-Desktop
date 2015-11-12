@@ -2,6 +2,8 @@ BrowserWindow = require 'browser-window'
 Scoreboard = require './roboscore/scoreboard'
 ipc = require 'ipc'
 
+# This is the main entry point of the application. Messages are passed back
+# and forth between the individual windows through Inter-Process Communication.
 class Roboscore
   mainWindow: null
   timerWindow: null
