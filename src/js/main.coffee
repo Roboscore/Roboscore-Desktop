@@ -1,6 +1,8 @@
 ipc = require 'ipc'
+shell = require 'shell'
 remote = require 'remote'
-shell = remote.require 'shell'
+
+Scoreboard = remote.require './roboscore/scoreboard'
 
 class MainWindow
   constructor: ->
@@ -11,6 +13,7 @@ class MainWindow
       displayTimer: document.getElementById('display-timer')
       startTimer: document.getElementById('start-timer')
       resetTimer: document.getElementById('reset-timer')
+      scoreboard: document.getElementById('scoreboard')
 
     @addEventListeners()
 
@@ -23,5 +26,9 @@ class MainWindow
 
     @buttons.resetTimer.onclick = ->
       ipc.send 'timer.reset'
+
+    @buttons.scoreboard.onclick = ->
+      console.log "Opening http://localhost:#{Scoreboard.PORT}"
+      shell.openExternal "http://localhost:#{Scoreboard.PORT}"
 
 new MainWindow

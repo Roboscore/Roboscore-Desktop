@@ -1,0 +1,39 @@
+@import "reset"
+@import "functions"
+
+@-webkit-keyframes flash-green
+  0%
+    text-shadow: none
+  50%
+    text-shadow: 0 0 1px white, 0 0 8px scale-color($emerald, $lightness: 20%)
+  100%
+    text-shadow: none
+
+html
+  font-family: $font-face
+
+table
+  width: 100%
+
+th
+  background: $belize-hole
+  font-weight: bold
+  color: white
+  text-shadow: 0 0 1px scale-color($belize-hole, $lightness: -60%)
+  padding: 1rem
+
+td
+  text-align: center
+  padding: .6rem
+
+  tr:nth-child(even) &
+    background: #eee
+
+.team-high
+  font-weight: bold
+  font-size: 1.1rem
+
+.tournament-high
+  color: $nephritis
+  font-size: 1.2rem
+  -webkit-animation: flash-green 1500ms infinite ease-in-out

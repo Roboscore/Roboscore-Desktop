@@ -1,7 +1,6 @@
 BrowserWindow = require 'browser-window'
+Scoreboard = require './roboscore/scoreboard'
 ipc = require 'ipc'
-http = require 'http'
-shell = require 'shell'
 
 class Roboscore
   mainWindow: null
@@ -12,17 +11,7 @@ class Roboscore
 
     @addEventListeners()
 
-    # We need a function which handles requests and send response
-    handleRequest = (request, response) ->
-      response.end('It Works!! Path Hit: ' + request.url)
-
-    # Create a server
-    server = http.createServer handleRequest
-
-    # Lets start our server
-    server.listen 8080, ->
-      # Callback triggered when server is successfully listening. Hurray!
-      console.log("Server listening on: http://localhost:%s", 8080)
+    @scoreboard = new Scoreboard
 
   addEventListeners: =>
     ipc.on 'timer.open', @openTimerWindow
