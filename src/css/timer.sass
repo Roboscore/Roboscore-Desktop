@@ -1,6 +1,6 @@
 @import "functions"
 
-@-webkit-keyframes flash
+@-webkit-keyframes flash-red
   0%
     background-color: $red
   50%
@@ -19,7 +19,4 @@ body
 .flash
   background: darken($red, 10%)
   text-shadow: 0 0 4px darken($red, 50%)
-  -webkit-animation-name: flash
-  -webkit-animation-duration: 1500ms
-  -webkit-animation-iteration-count: infinite
-  -webkit-animation-timing-function: ease-in-out
+  -webkit-animation: flash-red 1500ms infinite ease-in-out
